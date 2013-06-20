@@ -1,0 +1,10 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+    background-color:red;
+}
+
+.container{
+	width:900px;
+	margin:0 auto;
+}
