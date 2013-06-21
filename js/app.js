@@ -22,15 +22,9 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.TabController = Ember.ObjectController.extend({
-	1: function(){
-		alert("here");
+	nav: function(txt){
+		alert(txt);
 	},
-	features: function(){
-		alert("here2");
-	},
-	getting: function(){
-		alert("here3");
-	}
 });
 
 

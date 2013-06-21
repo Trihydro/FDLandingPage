@@ -17,10 +17,8 @@
 	<script type="text/x-handlebars" id="tab">
 		
 			{{#each model}}
-				<button {{action model.id}}>{{header1}}</button>
+				<button class='btn btn-info' {{action 'nav' header2}}>{{header1}}</button>
 			{{/each}}
-
-			<button {{action 'features'}}>{{header1}}button 2</button>
 		
 	</script>
 
