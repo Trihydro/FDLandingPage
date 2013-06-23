@@ -14,13 +14,25 @@
 		</div>
 	</script>
 
-	<script type="text/x-handlebars" id="tab">
-		
-			{{#each model}}
-				<button class='btn btn-info' {{action 'nav' header2}}>{{header1}}</button>
-			{{/each}}
-		
+	<script type="text/x-handlebars" id="tabs">
+		{{#each model}}
+			{{#linkTo 'tab' this}}
+				<button class='btn btn-info'>{{header1}}</button>
+			{{/linkTo}}
+		{{/each}}
+
+		<div class="span9">
+			{{outlet}}
+		</div>
 	</script>
+
+	<script type="text/x-handlebars" id="tab">
+		<h1>{{header1}}</h1>
+		<br/>
+
+		<h2>{{header2}}</h2>
+	</script>
+
 
 	<script src="js/libs/jquery-1.9.1.js"></script>
 	<script src="js/libs/handlebars-1.0.0-rc.4.js"></script>

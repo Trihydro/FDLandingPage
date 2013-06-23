@@ -6,10 +6,12 @@ App.Store = DS.Store.extend({
 });
 
 App.Router.map(function(){
-	this.resource('tab');
+	this.resource('tabs', function(){
+		this.resource('tab', {path: ':tab_id' });
+	});
 });
 
-App.TabRoute = Ember.Route.extend({
+App.TabsRoute = Ember.Route.extend({
 	model: function(){
 		return App.Tab.find();
 	}
@@ -17,11 +19,11 @@ App.TabRoute = Ember.Route.extend({
 
 App.IndexRoute = Ember.Route.extend({
 	redirect: function(){
-		this.transitionTo('tab');
+		this.transitionTo('tabs');
 	}
 });
 
-App.TabController = Ember.ObjectController.extend({
+App.TabsController = Ember.ObjectController.extend({
 	nav: function(txt){
 		alert(txt);
 	},
