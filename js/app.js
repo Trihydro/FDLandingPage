@@ -7,19 +7,13 @@ App.Store = DS.Store.extend({
 
 App.Router.map(function(){
 	this.resource('tabs', function(){
-		this.resource('tab', {path: ':tab_id' });
+		this.resource('tab', {path: '/:tab_id' });
 	});
 });
 
 App.TabsRoute = Ember.Route.extend({
 	model: function(){
 		return App.Tab.find();
-	}
-});
-
-App.IndexRoute = Ember.Route.extend({
-	redirect: function(){
-		this.transitionTo('tabs');
 	}
 });
 
@@ -50,4 +44,10 @@ App.Tab.FIXTURES = [{
 	header1: 'Getting Started',
 	header2: 'Using Field Direct'
 }];
+
+App.IndexRoute = Ember.Route.extend({
+	redirect: function(){
+		this.transitionTo('tab', App.Tab.find(1));
+	}
+});
 
